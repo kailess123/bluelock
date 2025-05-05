@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha de Personagem - Blue Lock</title>
+  <style>
+    body {
+      background-color: #0d0d1a;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .ficha-container {
+      max-width: 1000px;
+      margin: auto;
+      background: #111122;
+      border: 2px solid #2196f3;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 20px #2196f3;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #00bfff;
+      letter-spacing: 2px;
+    }
+
+    .input-nome {
+      font-size: 1em;
+      padding: 5px 10px;
+      width: 250px;
+      border-radius: 10px;
+      border: none;
+      background-color: #1a1a2e;
+      color: white;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2, h3 {
+      color: #00bfff;
+      border-bottom: 1px solid #00bfff;
+      padding-bottom: 5px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    input[type="text"], input[type="number"] {
+      background-color: #1a1a2e;
+      border: 1px solid #2196f3;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      width: 80px;
+    }
+
+    .status-grid, .atributos-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .pericias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .pericia-coluna {
+      background-color: #161634;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #2196f3;
+      width: 180px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ficha-container">
+    <header>
+      <h1>FICHA DE PERSONAGEM</h1>
+      <label>Nome: <input type="text" value="" class="input-nome"></label>
+    </header>
+
+    <section class="status">
+      <h2>Status</h2>
+      <div class="status-grid">
+        <label>Fôlego Atual: <input type="number" value="0"></label>
+        <label>Fôlego Máximo: <input type="number" value="0"></label>
+        <label>Fôlego Temporário: <input type="number" value="0"></label>
+        <label>Movimento: <input type="text" value="0m"></label>
+      </div>
+    </section>
+
+    <section class="atributos">
+      <h2>Atributos</h2>
+      <div class="atributos-grid">
+        <label>Físico: <input type="number" value="0"></label>
+        <label>Agilidade: <input type="number" value="0"></label>
+        <label>Intelecto: <input type="number" value="0"></label>
+        <label>Técnica: <input type="number" value="0"></label>
+        <label>Velocidade: <input type="number" value="0"></label>
+      </div>
+    </section>
+
+    <section class="pericias">
+      <div class="pericia-coluna">
+        <h3>Físico</h3>
+        <label>Chute: <input type="text" value="0"></label>
+        <label>Força: <input type="number" value="0"></label>
+        <label>Jogo de Corpo: <input type="number" value="0"></label>
+        <label>Salto: <input type="number" value="0"></label>
+        <label>Cabeceio: <input type="number" value="0"></label>
+        <label>Impulso: <input type="number" value="0"></label>
+      </div>
+
+      <div class="pericia-coluna">
+        <h3>Agilidade</h3>
+        <label>Drible: <input type="number" value="0"></label>
+        <label>Roubo de Bola: <input type="number" value="0"></label>
+        <label>Reflexo: <input type="number" value="0"></label>
+        <label>Posição: <input type="number" value="0"></label>
+        <label>Domínio: <input type="number" value="0"></label>
+      </div>
+
+      <div class="pericia-coluna">
+        <h3>Técnica</h3>
+        <label>Passe: <input type="number" value="0"></label>
+        <label>Cruzamento: <input type="number" value="0"></label>
+        <label>Domínio: <input type="number" value="0"></label>
+        <label>Chute: <input type="number" value="0"></label>
+        <label>Roubo de Bola: <input type="number" value="0"></label>
+      </div>
+
+      <div class="pericia-coluna">
+        <h3>Intelecto</h3>
+        <label>Visão: <input type="number" value="0"></label>
+        <label>Intimidação: <input type="number" value="0"></label>
+        <label>Enganação: <input type="number" value="0"></label>
+        <label>Furtividade: <input type="number" value="0"></label>
+        <label>Curva: <input type="number" value="0"></label>
+      </div>
+
+      <div class="pericia-coluna">
+        <h3>Velocidade</h3>
+        <label>Corrida: <input type="number" value="0"></label>
+        <label>Posição: <input type="number" value="0"></label>
+        <label>Cabeceio: <input type="number" value="0"></label>
+        <label>Impulso: <input type="number" value="0"></label>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Habilidades de Classe</title>
+  <style>
+    body {
+      background-color: #0a0a1f;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #ffffff;
+      padding: 40px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00bfff;
+      font-size: 2.2em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+    }
+
+    .habilidades-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .habilidade-card {
+      background: linear-gradient(145deg, #101034, #0a0a28);
+      border: 2px solid #00bfff;
+      border-radius: 16px;
+      padding: 15px;
+      box-shadow: 0 0 10px #00bfff55;
+      transition: transform 0.2s ease;
+    }
+
+    .habilidade-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #00bfff88;
+    }
+
+    .habilidade-card h2 {
+      background-color: #003f77;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 14px 14px 0 0;
+      margin: -15px -15px 10px -15px;
+      font-size: 1em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #00bfff;
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      background-color: #0d0d2a;
+      border: 1px solid #00bfff66;
+      border-radius: 8px;
+      padding: 8px;
+      color: #ccc;
+      font-size: 0.9em;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 60px;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+      background: #003f77;
+      color: white;
+      padding: 4px;
+      border-radius: 5px;
+    }
+
+    .image-preview {
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 10px;
+      max-height: 120px;
+      object-fit: cover;
+      border: 1px solid #00bfff88;
+      box-shadow: 0 0 10px #00bfff33;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Habilidades de Classe</h1>
+
+    <div class="habilidades-grid">
+      <!-- Card Genérico (Passiva ou Habilidade) -->
+      <!-- Repita para cada habilidade com campos editáveis -->
+
+      <!-- Exemplo de card -->
+      <div class="habilidade-card">
+        <h2>Passiva de Classe</h2>
+        <div class="label">Nome:</div>
+        <input type="text" placeholder="Nome da passiva">
+
+        <div class="label">Descrição:</div>
+        <textarea placeholder="Descrição da passiva..."></textarea>
+
+        <div class="label">Imagem:</div>
+        <input type="file" accept="image/*" onchange="previewImage(event, 'img1')">
+        <img id="img1" class="image-preview" style="display:none;">
+      </div>
+
+      <!-- 1ª Habilidade -->
+      <div class="habilidade-card">
+        <h2>1ª Habilidade</h2>
+        <div class="label">Nome:</div>
+        <input type="text" placeholder="Nome da habilidade">
+
+        <div class="label">Custo:</div>
+        <input type="text" placeholder="Ex: 12% Fôlego">
+
+        <div class="label">Descrição:</div>
+        <textarea placeholder="Descrição da habilidade..."></textarea>
+
+        <div class="label">Imagem:</div>
+        <input type="file" accept="image/*" onchange="previewImage(event, 'img2')">
+        <img id="img2" class="image-preview" style="display:none;">
+      </div>
+
+      <!-- 2ª Habilidade -->
+      <div class="habilidade-card">
+        <h2>2ª Habilidade</h2>
+        <div class="label">Nome:</div>
+        <input type="text" placeholder="Nome da habilidade">
+
+        <div class="label">Custo:</div>
+        <input type="text" placeholder="Ex: 14% Fôlego">
+
+        <div class="label">Descrição:</div>
+        <textarea placeholder="Descrição da habilidade..."></textarea>
+
+        <div class="label">Imagem:</div>
+        <input type="file" accept="image/*" onchange="previewImage(event, 'img3')">
+        <img id="img3" class="image-preview" style="display:none;">
+      </div>
+
+      <!-- 3ª Habilidade -->
+      <div class="habilidade-card">
+        <h2>3ª Habilidade</h2>
+        <div class="label">Nome:</div>
+        <input type="text" placeholder="Nome da habilidade">
+
+        <div class="label">Custo:</div>
+        <input type="text" placeholder="Ex: 12% Fôlego">
+
+        <div class="label">Descrição:</div>
+        <textarea placeholder="Descrição da habilidade..."></textarea>
+
+        <div class="label">Imagem:</div>
+        <input type="file" accept="image/*" onchange="previewImage(event, 'img4')">
+        <img id="img4" class="image-preview" style="display:none;">
+      </div>
+
+      <!-- 4ª Habilidade -->
+      <div class="habilidade-card">
+        <h2>4ª Habilidade</h2>
+        <div class="label">Nome:</div>
+        <input type="text" placeholder="Nome da habilidade">
+
+        <div class="label">Custo:</div>
+        <input type="text" placeholder="Ex: 16% Fôlego">
+
+        <div class="label">Descrição:</div>
+        <textarea placeholder="Descrição da habilidade..."></textarea>
+
+        <div class="label">Imagem:</div>
+        <input type="file" accept="image/*" onchange="previewImage(event, 'img5')">
+        <img id="img5" class="image-preview" style="display:none;">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function previewImage(event, imgId) {
+      const input = event.target;
+      const image = document.getElementById(imgId);
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = e => {
+          image.src = e.target.result;
+          image.style.display = 'block';
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
+</body>
+</html>
