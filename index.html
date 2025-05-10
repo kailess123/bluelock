@@ -492,3 +492,75 @@
     }
   }
 </script>
+<script>
+  // Alterna visibilidade do menu
+  function toggleConfig() {
+    const menu = document.getElementById('configMenu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+
+  // Aplica cor personalizada à ficha
+  function aplicarCor() {
+    const cor = document.getElementById('colorPicker').value;
+    const ficha = document.querySelector('.ficha-container');
+    if (ficha) ficha.style.backgroundColor = cor;
+    localStorage.setItem('corFicha', cor); // Salva a cor
+  }
+
+  // Reseta todos os campos da ficha
+  function resetarCampos() {
+    if (confirm("Deseja apagar todos os dados preenchidos?")) {
+      localStorage.clear();
+      location.reload();
+    }
+  }
+
+  // Restaura a cor padrão da ficha
+  function resetarCor() {
+    const ficha = document.querySelector('.ficha-container');
+    if (ficha) ficha.style.backgroundColor = '#111122';
+    document.getElementById('colorPicker').value = '#111122';
+    localStorage.removeItem('corFicha');
+  }
+
+  // Alterna entre modo claro e escuro
+  function alternarModoEscuroClaro() {
+    const body = document.body;
+    const isEscuro = body.style.backgroundColor === 'white';
+    body.style.backgroundColor = isEscuro ? '#0d0d1a' : 'white';
+    body.style.color = isEscuro ? 'white' : 'black';
+
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(el => {
+      el.style.backgroundColor = isEscuro ? '#1a1a2e' : '#e0e0e0';
+      el.style.color = isEscuro ? '#ffffff' : '#000000';
+    });
+  }
+
+  // Ao carregar, aplica cor salva se houver
+  window.addEventListener('DOMContentLoaded', () => {
+    const corSalva = localStorage.getItem('corFicha');
+    if (corSalva) {
+      const ficha = document.querySelector('.ficha-container');
+      if (ficha) ficha.style.backgroundColor = corSalva;
+      document.getElementById('colorPicker').value = corSalva;
+    }
+  });
+</script>
+
+<!-- Botões adicionais no menu de configurações -->
+<script>
+  const configMenu = document.getElementById('configMenu');
+  const btnResetCor = document.createElement('button');
+  btnResetCor.textContent = "Resetar Cor";
+  btnResetCor.onclick = resetarCor;
+
+  const btnModoClaroEscuro = document.createElement('button');
+  btnModoClaroEscuro.textContent = "Modo Claro/Escuro";
+  btnModoClaroEscuro.onclick = alternarModoEscuroClaro;
+
+  configMenu.appendChild(btnResetCor);
+  configMenu.appendChild(btnModoClaroEscuro);
+</script>
+
+</body>
