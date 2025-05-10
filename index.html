@@ -373,8 +373,6 @@
       }
     }
   </script>
-  <!-- Ícone de engrenagem -->
-<div id="config-button">⚙️</div>
 </body>
 </html>
 <script>
@@ -397,4 +395,100 @@
       });
     });
   });
+</script>
+<!-- Botão de configurações (canto superior direito) -->
+<style>
+  .config-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #003f77;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00bfff;
+    z-index: 1000;
+  }
+
+  .config-menu {
+    position: fixed;
+    top: 75px;
+    right: 20px;
+    background-color: #111122;
+    border: 2px solid #2196f3;
+    border-radius: 12px;
+    padding: 15px;
+    width: 220px;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 0 10px #2196f3;
+  }
+
+  .config-menu label,
+  .config-menu button {
+    display: block;
+    margin-top: 10px;
+    color: #00bfff;
+    font-size: 0.9em;
+  }
+
+  .color-picker {
+    width: 100%;
+    padding: 5px;
+    background-color: #0d0d2a;
+    color: #ccc;
+    border: 1px solid #00bfff88;
+    border-radius: 6px;
+  }
+
+  .config-menu button {
+    background-color: #003f77;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .config-menu button:hover {
+    background-color: #005fa3;
+  }
+</style>
+
+<!-- Botão de engrenagem -->
+<button class="config-btn" onclick="toggleConfig()">⚙</button>
+
+<!-- Menu de configurações -->
+<div class="config-menu" id="configMenu">
+  <label>Cor da Ficha:</label>
+  <input type="color" id="colorPicker" class="color-picker" value="#111122">
+
+  <button onclick="aplicarCor()">Aplicar Cor</button>
+
+  <button onclick="resetarCampos()">Resetar Campos</button>
+</div>
+
+<!-- Script de funcionalidades -->
+<script>
+  function toggleConfig() {
+    const menu = document.getElementById('configMenu');
+    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+  }
+
+  function aplicarCor() {
+    const cor = document.getElementById('colorPicker').value;
+    const ficha = document.querySelector('.ficha-container');
+    if (ficha) ficha.style.backgroundColor = cor;
+  }
+
+  function resetarCampos() {
+    if (confirm("Deseja apagar todos os dados preenchidos?")) {
+      localStorage.clear();
+      location.reload();
+    }
+  }
 </script>
