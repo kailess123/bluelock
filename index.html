@@ -522,21 +522,6 @@
     document.getElementById('colorPicker').value = '#111122';
     localStorage.removeItem('corFicha');
   }
-
-  // Alterna entre modo claro e escuro
-  function alternarModoEscuroClaro() {
-    const body = document.body;
-    const isEscuro = body.style.backgroundColor === 'white';
-    body.style.backgroundColor = isEscuro ? '#0d0d1a' : 'white';
-    body.style.color = isEscuro ? 'white' : 'black';
-
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(el => {
-      el.style.backgroundColor = isEscuro ? '#1a1a2e' : '#e0e0e0';
-      el.style.color = isEscuro ? '#ffffff' : '#000000';
-    });
-  }
-
   // Ao carregar, aplica cor salva se houver
   window.addEventListener('DOMContentLoaded', () => {
     const corSalva = localStorage.getItem('corFicha');
@@ -554,11 +539,6 @@
   const btnResetCor = document.createElement('button');
   btnResetCor.textContent = "Resetar Cor";
   btnResetCor.onclick = resetarCor;
-
-  const btnModoClaroEscuro = document.createElement('button');
-  btnModoClaroEscuro.textContent = "Modo Claro/Escuro";
-  btnModoClaroEscuro.onclick = alternarModoEscuroClaro;
-
   configMenu.appendChild(btnResetCor);
   configMenu.appendChild(btnModoClaroEscuro);
 </script>
