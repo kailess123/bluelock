@@ -373,73 +373,44 @@
       }
     }
   </script>
+  <!-- Ícone de engrenagem -->
+<div id="config-button">⚙️</div>
+
+<!-- Painel de configurações -->
+<div id="config-panel">
+  <h3>Configurações</h3>
+
+  <label>Cor Primária:
+    <input type="color" id="primary-color" value="#00bfff">
+  </label>
+
+  <label>
+    <input type="checkbox" id="toggle-theme"> Tema Claro
+  </label>
+
+  <button onclick="resetarFicha()">Resetar Ficha</button>
+</div>
+
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Ficha de Personagem</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background-color: #0d0d1a;
-      color: white;
-      padding: 20px;
-    }
+<script>
+  // Salvar e carregar campos automaticamente com localStorage
+  window.addEventListener('DOMContentLoaded', () => {
+    // Seleciona todos os inputs e textareas da página
+    const campos = document.querySelectorAll('input[type="text"], input[type="number"], textarea');
 
-    input, textarea {
-      display: block;
-      margin: 10px 0;
-      padding: 8px;
-      width: 100%;
-      max-width: 400px;
-      background-color: #1a1a2e;
-      border: 1px solid #00bfff;
-      color: white;
-      border-radius: 6px;
-    }
+    campos.forEach((campo, index) => {
+      const id = campo.placeholder + '-' + index; // cria uma chave única
+      // Carrega o valor salvo (se houver)
+      const salvo = localStorage.getItem(id);
+      if (salvo) {
+        campo.value = salvo;
+      }
 
-    label {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    .salvo {
-      color: #00ff88;
-      font-size: 0.9em;
-    }
-  </style>
-</head>
-<body>
-  <h1>Ficha de Personagem</h1>
-
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome">
-
-  <label for="classe">Classe:</label>
-  <input type="text" id="classe">
-
-  <label for="descricao">Descrição:</label>
-  <textarea id="descricao"></textarea>
-
-  <p class="salvo" id="mensagem"></p>
-
-  <script>
-    // Carregar dados salvos
-    const campos = ['nome', 'classe', 'descricao'];
-
-    campos.forEach(campo => {
-      const input = document.getElementById(campo);
-      input.value = localStorage.getItem(campo) || '';
-      input.addEventListener('input', () => {
-        localStorage.setItem(campo, input.value);
-        document.getElementById("mensagem").textContent = "Salvo localmente!";
-        setTimeout(() => {
-          document.getElementById("mensagem").textContent = "";
-        }, 1500);
+      // Salva sempre que o valor muda
+      campo.addEventListener('input', () => {
+        localStorage.setItem(id, campo.value);
       });
     });
-  </script>
-</body>
-</html>
+  });
+</script>
