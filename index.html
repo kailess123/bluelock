@@ -375,3 +375,71 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha de Personagem</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #0d0d1a;
+      color: white;
+      padding: 20px;
+    }
+
+    input, textarea {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+      max-width: 400px;
+      background-color: #1a1a2e;
+      border: 1px solid #00bfff;
+      color: white;
+      border-radius: 6px;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .salvo {
+      color: #00ff88;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ficha de Personagem</h1>
+
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome">
+
+  <label for="classe">Classe:</label>
+  <input type="text" id="classe">
+
+  <label for="descricao">Descrição:</label>
+  <textarea id="descricao"></textarea>
+
+  <p class="salvo" id="mensagem"></p>
+
+  <script>
+    // Carregar dados salvos
+    const campos = ['nome', 'classe', 'descricao'];
+
+    campos.forEach(campo => {
+      const input = document.getElementById(campo);
+      input.value = localStorage.getItem(campo) || '';
+      input.addEventListener('input', () => {
+        localStorage.setItem(campo, input.value);
+        document.getElementById("mensagem").textContent = "Salvo localmente!";
+        setTimeout(() => {
+          document.getElementById("mensagem").textContent = "";
+        }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>
